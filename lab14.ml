@@ -10,7 +10,7 @@
 
 (* This lab provides practice with delayed (lazy) computations,
 implemented as user code using the naturally lazy behavior of OCaml
-functions. (In the next lab we explore OCaml's built-in Lazy module.)
+functions. (In the next lab we explore OCaml's built-in `Lazy` module.)
 
 In this lab, you will use an infinite data structure, the *stream*. *)
 
@@ -91,7 +91,7 @@ in the reading, but see if you can come up with the definitions
 without looking them up. *)
 
 (*....................................................................
-Exercise 1. An infinite stream of the integer 2. As usual, for this
+Exercise 1: An infinite stream of the integer 2. As usual, for this
 and all succeeding exercises, you shouldn't feel beholden to how the
 definition is introduced in the skeleton code below. (We'll stop
 mentioning this now, and forevermore.)
@@ -101,7 +101,7 @@ let rec twos =
   fun () -> Cons (2, twos) ;;
 
 (*....................................................................
-Exercise 2. An infinite stream of threes, built by summing the ones
+Exercise 2: An infinite stream of threes, built by summing the ones
 and twos.
 ....................................................................*)
 
@@ -109,7 +109,7 @@ let threes =
   smap2 (+) ones twos ;;
   
 (*....................................................................
-Exercise 3. An infinite stream of natural numbers (0, 1, 2, 3, ...).
+Exercise 3: An infinite stream of natural numbers (0, 1, 2, 3, ...).
 Try working this out on your own before checking out the solution in
 the textbook.
 ....................................................................*)
@@ -139,7 +139,7 @@ or, hiding the `nats_from` inside the definition of `nats`,
 This approach is faster but less "infinite data structure"-y. *)
 
 (*....................................................................
-Exercise 4. Create a function `alternating_stream`, which takes two
+Exercise 4: Create a function `alternating_stream`, which takes two
 streams and 'alternates' them together; `alternating_stream` should
 output a single stream created by alternating the elements of the two
 input streams starting with an element of the first stream.
@@ -165,7 +165,7 @@ previous streams (`ones`, `twos`, `threes`, `nats`) by making use of
 the stream mapping functions (`smap`, `smap2`). *)
 
 (*....................................................................
-Exercise 5. Generate two infinite streams, one of the even natural
+Exercise 5: Generate two infinite streams, one of the even natural
 numbers, and one of the odds.
 ....................................................................*)
 
@@ -195,7 +195,7 @@ the other higher-order list functions you've grown to know and love,
 like folding and filtering. So let's implement some. *)
 
 (*....................................................................
-Exercise 6. Define a function `sfilter` that takes a predicate (that
+Exercise 6: Define a function `sfilter` that takes a predicate (that
 is, a function returning a `bool`) and a stream, and returns the
 stream that contains all the elements in the argument stream that
 satisfy the predicate. Here's an example -- generating a stream of
@@ -272,7 +272,7 @@ let rec sfilter (pred : 'a -> bool) (s : 'a stream) : 'a stream =
     else (sfilter pred tl) () ;;
   
 (*....................................................................
-Exercise 7. Now redefine `evens` and `odds` (as `evens2` and `odds2`)
+Exercise 7: Now redefine `evens` and `odds` (as `evens2` and `odds2`)
 by using `sfilter` to filter over `nats`.
 ....................................................................*)
 
@@ -339,7 +339,7 @@ Here's the process of sieving a stream of numbers in more detail:
        should be delayed, and only executed when forced to do so.
 
 ......................................................................
-Exercise 9. Implement Eratosthenes sieve to generate an infinite
+Exercise 8: Implement Eratosthenes sieve to generate an infinite
 stream of primes.  Example:
 
 # primes = sieve (tail (tail nats)) ;;
@@ -407,8 +407,6 @@ let primes : int stream = sieve (tail (tail nats)) ;;
 (* For testing purposes (and just for fun), we generate a table of
 some times to generate primes, stopping as soon as the next prime
 takes more than half a second: *)
-
-exception Done ;;
 
 let prime_timing () =
   print_endline "  n      time for nth prime (seconds)";
