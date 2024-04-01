@@ -42,6 +42,7 @@ reading, here packaged up into a module. *)
    we'll mostly ignore this issue of multiple forces in the solutions
    we give in this lab, though we comment on it with alternative
    solutions below. *)
+   
 
 module LazyStream =
   struct
